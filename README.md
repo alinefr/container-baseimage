@@ -1,23 +1,23 @@
-# osixia/light-baseimage
+# alinefr/light-baseimage
 
-[![Docker Pulls](https://img.shields.io/docker/pulls/osixia/light-baseimage.svg)][hub]
-[![Docker Stars](https://img.shields.io/docker/stars/osixia/light-baseimage.svg)][hub]
-[![](https://images.microbadger.com/badges/image/osixia/light-baseimage.svg)](http://microbadger.com/images/osixia/light-baseimage "Get your own image badge on microbadger.com")
+[![Docker Pulls](https://img.shields.io/docker/pulls/alinefr/light-baseimage.svg)][hub]
+[![Docker Stars](https://img.shields.io/docker/stars/alinefr/light-baseimage.svg)][hub]
+[![](https://images.microbadger.com/badges/image/alinefr/light-baseimage.svg)](http://microbadger.com/images/alinefr/light-baseimage "Get your own image badge on microbadger.com")
 
-[hub]: https://hub.docker.com/r/osixia/light-baseimage/
+[hub]: https://hub.docker.com/r/alinefr/light-baseimage/
 
-Latest release: 1.3.3 [Changelog](CHANGELOG.md)
- | [Docker Hub](https://hub.docker.com/r/osixia/light-baseimage/) 
+Latest release: 2.0.0 [Changelog](CHANGELOG.md)
+ | [Docker Hub](https://hub.docker.com/r/alinefr/light-baseimage/) 
 
 A **Debian 10 (Buster)** based docker image to build reliable image quickly. This image provide a simple opinionated solution to build multiple or single process image with minimum of layers and an optimized build.
 
 The aims of this image is to be used as a base for your own Docker images. It's base on the awesome work of: [phusion/baseimage-docker](https://github.com/phusion/baseimage-docker)
 
 Other base distribution are available:
-- [Alpine](https://github.com/osixia/docker-light-baseimage/tree/alpine) | [Docker Hub](https://hub.docker.com/r/osixia/alpine-light-baseimage/) | [![](https://images.microbadger.com/badges/image/osixia/alpine-light-baseimage.svg)](http://microbadger.com/images/osixia/alpine-light-baseimage "Get your own image badge on microbadger.com")
+- [Alpine](https://github.com/alinefr/docker-light-baseimage/tree/alpine) | [Docker Hub](https://hub.docker.com/r/alinefr/alpine-light-baseimage/) | [![](https://images.microbadger.com/badges/image/alinefr/alpine-light-baseimage.svg)](http://microbadger.com/images/alinefr/alpine-light-baseimage "Get your own image badge on microbadger.com")
 
 Table of Contents
-- [osixia/light-baseimage](#osixialight-baseimage)
+- [alinefr/light-baseimage](#alinefrlight-baseimage)
   - [Contributing](#contributing)
   - [Overview](#overview)
   - [Quick Start](#quick-start)
@@ -71,7 +71,7 @@ Table of Contents
 If you find this image useful here's how you can help:
 
 - Send a pull request with your kickass new features and bug fixes
-- Help new users with [issues](https://github.com/osixia/docker-openldap/issues) they may encounter
+- Help new users with [issues](https://github.com/alinefr/docker-openldap/issues) they may encounter
 - Support the development of this image and star this repo!
 
 ## Overview
@@ -148,9 +148,9 @@ In the Dockerfile we are going to:
   - Define ports exposed and volumes if needed.
 
 
-        # Use osixia/light-baseimage
-        # https://github.com/osixia/docker-light-baseimage
-        FROM osixia/light-baseimage:1.3.3
+        # Use alinefr/light-baseimage
+        # https://github.com/alinefr/docker-light-baseimage
+        FROM alinefr/light-baseimage:2.0.0
 
         # Download nginx from apt-get and clean apt-get files
         RUN apt-get -y update \
@@ -163,7 +163,7 @@ In the Dockerfile we are going to:
         ADD service /container/service
 
         # Use baseimage install-service script
-        # https://github.com/osixia/docker-light-baseimage/blob/stable/image/tool/install-service
+        # https://github.com/alinefr/docker-light-baseimage/blob/stable/image/tool/install-service
         RUN /container/tool/install-service
 
         # Add default env directory
@@ -303,7 +303,7 @@ And the secret is not defined in the process:
 
 > The secret is:
 
-Yes in this case it's not really useful to have a secret variable like this, but a concrete example can be found in [osixia/openldap](https://github.com/osixia/docker-openldap) image.
+Yes in this case it's not really useful to have a secret variable like this, but a concrete example can be found in [alinefr/openldap](https://github.com/alinefr/docker-openldap) image.
 The admin password is available in clear text during the container first start to create a new ldap database where it is saved encrypted. After that the admin password is not available in clear text in the container environment.
 
 Ok let's check our name now, go to [http://localhost:8080/](http://localhost:8080/)
@@ -390,12 +390,12 @@ In the Dockerfile we are going to:
   - Define ports exposed and volumes if needed.
 
 
-        # Use osixia/light-baseimage
-        # https://github.com/osixia/docker-light-baseimage
-        FROM osixia/light-baseimage:1.3.3
+        # Use alinefr/light-baseimage
+        # https://github.com/alinefr/docker-light-baseimage
+        FROM alinefr/light-baseimage:2.0.0
 
         # Install multiple process stack, nginx and php7.0-fpm and clean apt-get files
-        # https://github.com/osixia/docker-light-baseimage/blob/stable/image/tool/add-multiple-process-stack
+        # https://github.com/alinefr/docker-light-baseimage/blob/stable/image/tool/add-multiple-process-stack
         RUN apt-get -y update \
             && /container/tool/add-multiple-process-stack \
             && LC_ALL=C DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
@@ -408,7 +408,7 @@ In the Dockerfile we are going to:
         ADD service /container/service
 
         # Use baseimage install-service script
-        # https://github.com/osixia/docker-light-baseimage/blob/stable/image/tool/install-service
+        # https://github.com/alinefr/docker-light-baseimage/blob/stable/image/tool/install-service
         RUN /container/tool/install-service
 
         # Add default env directory
@@ -523,31 +523,31 @@ So we have a container with two process supervised by runit running in our conta
 ## Images Based On Light-Baseimage
 
 Single process images:
-- [osixia/openldap](https://github.com/osixia/docker-openldap)
-- [osixia/keepalived](https://github.com/osixia/docker-keepalived)
-- [osixia/tinc](https://github.com/osixia/docker-tinc)
-- [osixia/registry-ldap-auth](https://github.com/osixia/docker-registry-ldap-auth)
-- [osixia/cfssl-multirootca](https://github.com/osixia/docker-cfssl-multirootca)
-- [osixia/backup](https://github.com/osixia/docker-backup)
-- [osixia/backup-manager](https://github.com/osixia/docker-backup-manager)
-- [osixia/mmc-agent](https://github.com/osixia/docker-mmc-agent)
+- [alinefr/openldap](https://github.com/alinefr/docker-openldap)
+- [alinefr/keepalived](https://github.com/alinefr/docker-keepalived)
+- [alinefr/tinc](https://github.com/alinefr/docker-tinc)
+- [alinefr/registry-ldap-auth](https://github.com/alinefr/docker-registry-ldap-auth)
+- [alinefr/cfssl-multirootca](https://github.com/alinefr/docker-cfssl-multirootca)
+- [alinefr/backup](https://github.com/alinefr/docker-backup)
+- [alinefr/backup-manager](https://github.com/alinefr/docker-backup-manager)
+- [alinefr/mmc-agent](https://github.com/alinefr/docker-mmc-agent)
 
 Multiple process images:
-- [osixia/openldap-backup](https://github.com/osixia/docker-openldap-backup)
-- [osixia/mariadb](https://github.com/osixia/docker-mariadb)
-- [osixia/wordpress](https://github.com/osixia/docker-wordpress)
-- [osixia/roundcube](https://github.com/osixia/docker-roundcube)
-- [osixia/piwik](https://github.com/osixia/docker-piwik)
-- [osixia/phpMyAdmin](https://github.com/osixia/docker-phpMyAdmin)
-- [osixia/phpLDAPadmin](https://github.com/osixia/docker-phpLDAPadmin)
-- [osixia/keepalived-confd](https://github.com/osixia/docker-keepalived-confd)
-- [osixia/tinc-etcd](https://github.com/osixia/docker-tinc-etcd)
-- [osixia/postfix-gateway-confd](https://github.com/osixia/docker-postfix-gateway-confd)
-- [osixia/mmc-mail](https://github.com/osixia/docker-mmc-mail)
-- [osixia/mmc-web](https://github.com/osixia/docker-mmc-web)
+- [alinefr/openldap-backup](https://github.com/alinefr/docker-openldap-backup)
+- [alinefr/mariadb](https://github.com/alinefr/docker-mariadb)
+- [alinefr/wordpress](https://github.com/alinefr/docker-wordpress)
+- [alinefr/roundcube](https://github.com/alinefr/docker-roundcube)
+- [alinefr/piwik](https://github.com/alinefr/docker-piwik)
+- [alinefr/phpMyAdmin](https://github.com/alinefr/docker-phpMyAdmin)
+- [alinefr/phpLDAPadmin](https://github.com/alinefr/docker-phpLDAPadmin)
+- [alinefr/keepalived-confd](https://github.com/alinefr/docker-keepalived-confd)
+- [alinefr/tinc-etcd](https://github.com/alinefr/docker-tinc-etcd)
+- [alinefr/postfix-gateway-confd](https://github.com/alinefr/docker-postfix-gateway-confd)
+- [alinefr/mmc-mail](https://github.com/alinefr/docker-mmc-mail)
+- [alinefr/mmc-web](https://github.com/alinefr/docker-mmc-web)
 
 Image adding light-baseimage tools to an existing image
-- [osixia/gitlab](https://github.com/osixia/docker-gitlab)
+- [alinefr/gitlab](https://github.com/alinefr/docker-gitlab)
 
 Send me a message to add your image in this list.
 
@@ -591,14 +591,14 @@ After that the service-available will be process like regular services.
 
 Here simple Dockerfile example how to add a service-available to an image:
 
-        # Use osixia/light-baseimage
-        # https://github.com/osixia/docker-light-baseimage
-        FROM osixia/light-baseimage:1.3.3
+        # Use alinefr/light-baseimage
+        # https://github.com/alinefr/docker-light-baseimage
+        FROM alinefr/light-baseimage:2.0.0
 
         # Add cfssl and cron service-available
-        # https://github.com/osixia/docker-light-baseimage/blob/stable/image/tool/add-service-available
-        # https://github.com/osixia/docker-light-baseimage/blob/stable/image/service-available/:ssl-tools/download.sh
-        # https://github.com/osixia/docker-light-baseimage/blob/stable/image/service-available/:cron/download.sh
+        # https://github.com/alinefr/docker-light-baseimage/blob/stable/image/tool/add-service-available
+        # https://github.com/alinefr/docker-light-baseimage/blob/stable/image/service-available/:ssl-tools/download.sh
+        # https://github.com/alinefr/docker-light-baseimage/blob/stable/image/service-available/:cron/download.sh
         RUN apt-get -y update \
             && /container/tool/add-service-available :ssl-tools :cron \
             && LC_ALL=C DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
@@ -611,7 +611,7 @@ Note: Most of predefined service available start with a `:` to make sure they ar
 
 To create a service-available just create a regular service, add a download.sh file to set how the needed content is downloaded and add it to /container/service-available directory. The download.sh script is not mandatory if nothing need to be downloaded.
 
-For example a simple image example that add service-available to this baseimage: [osixia/web-baseimage](https://github.com/osixia/docker-web-baseimage)
+For example a simple image example that add service-available to this baseimage: [alinefr/web-baseimage](https://github.com/alinefr/docker-web-baseimage)
 
 
 ### Fix docker mounted file problems
@@ -662,7 +662,7 @@ What it does:
 
 *Run tool* takes several options, to list them:
 
-    docker run osixia/light-baseimage:1.3.3 --help
+    docker run alinefr/light-baseimage:2.0.0 --help
     usage: run [-h] [-e] [-s] [-p] [-f] [-o {startup,process,finish}]
                [-c COMMAND [WHEN={startup,process,finish} ...]] [-k]
                [--wait-state FILENAME] [--wait-first-startup] [--keep-startup-env]
@@ -755,7 +755,7 @@ The container environment is then exported to /container/run/environment and in 
 
 If a main command is set for example:
 
-    docker run -it osixia/openldap:1.4.0 bash
+    docker run -it alinefr/openldap:1.4.0 bash
 
 *Run tool* will execute the single process and the main command. If the main command exits the container exits. This is useful to debug or image development purpose.
 
@@ -765,7 +765,7 @@ In a multiple process image *run tool* execute runit witch supervise /container/
 
 If a main command is set for example:
 
-    docker run -it osixia/phpldapadmin:0.9.0 bash
+    docker run -it alinefr/phpldapadmin:0.9.0 bash
 
 *run tool* will execute runit and the main command. If the main command exits the container exits. This is still useful to debug or image development purpose.
 
@@ -773,7 +773,7 @@ If a main command is set for example:
 If a main command is set *run tool* launch it otherwise bash is launched.
 Example:
 
-    docker run -it osixia/light-baseimage:1.3.3
+    docker run -it alinefr/light-baseimage:2.0.0
 
 
 ##### Extra environment variables
@@ -839,7 +839,7 @@ complex-bash-env make it easy to iterate trough this variable:
         echo ${!fruit}
       done
 
-A more complete example can be found [osixia/phpLDAPadmin](https://github.com/osixia/docker-phpLDAPadmin) image.
+A more complete example can be found [alinefr/phpLDAPadmin](https://github.com/alinefr/docker-phpLDAPadmin) image.
 
 Note this yaml definition:
 
@@ -849,8 +849,8 @@ Note this yaml definition:
 
 Can also be set by command line converted in python or json:
 
-    docker run -it --env FRUITS="#PYTHON2BASH:['orange','apple']" osixia/light-baseimage:1.3.3 printenv
-    docker run -it --env FRUITS="#JSON2BASH:[\"orange\",\"apple\"]" osixia/light-baseimage:1.3.3 printenv
+    docker run -it --env FRUITS="#PYTHON2BASH:['orange','apple']" alinefr/light-baseimage:2.0.0 printenv
+    docker run -it --env FRUITS="#JSON2BASH:[\"orange\",\"apple\"]" alinefr/light-baseimage:2.0.0 printenv
 
 ### Tests
 
